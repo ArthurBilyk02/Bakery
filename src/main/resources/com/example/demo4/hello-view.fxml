@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
+  <tabs>
+    <Tab text="Add Baked Good">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="154.0" layoutY="276.0" mnemonicParsing="false" onAction="#addBakedGood" text="Add " />
+                  <TextField fx:id="nameTextField" layoutX="100.0" layoutY="46.0" promptText="Name" />
+                  <TextField fx:id="originTextField" layoutX="100.0" layoutY="91.0" promptText="Region" />
+                  <TextArea fx:id="descriptionTextArea" layoutX="84.0" layoutY="133.0" prefHeight="76.0" prefWidth="200.0" promptText="Textural description" />
+                  <Label layoutX="117.0" layoutY="14.0" text="Adding a baked good" />
+                  <Button fx:id="selectImageBtn" layoutX="141.0" layoutY="226.0" mnemonicParsing="false" onAction="#choosePhoto" text="Select File" />
+                  <Label layoutX="82.0" layoutY="230.0" text="Image:" />
+                  <ImageView fx:id="imageView" fitHeight="263.0" fitWidth="286.0" layoutX="300.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="33.0" layoutY="50.0" text="Name" />
+                  <Label layoutX="7.0" layoutY="95.0" text="Country/Region" />
+                  <Label layoutX="18.0" layoutY="145.0" text="Textural &#10;Description" />
+               </children>
+            </AnchorPane>
+         </content></Tab>
+    <Tab text="Add Ingredient">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="ingredientNameTextField" layoutX="251.0" layoutY="43.0" promptText="Name" />
+                  <TextField fx:id="ingredientCaloriesTextField" layoutX="251.0" layoutY="146.0" promptText="Calories" />
+                  <Label layoutX="227.0" layoutY="6.0" text="Add or Remove Ingredients" />
+                  <TextArea fx:id="ingredientDescriptionTextArea" layoutX="251.0" layoutY="86.0" prefHeight="37.0" prefWidth="200.0" promptText="Description" />
+                  <Label layoutX="148.0" layoutY="47.0" prefHeight="18.0" prefWidth="94.0" text="Ingredient Name" />
+                  <Label layoutX="165.0" layoutY="88.0" text="Ingredient&#10;Description" textAlignment="CENTER" />
+                  <Label layoutX="183.0" layoutY="150.0" text="Calories" />
+                  <Button layoutX="281.0" layoutY="199.0" mnemonicParsing="false" onAction="#addIngredient" text="Add" />
+               </children></AnchorPane>
+         </content></Tab>
+      <Tab text="Baked Goods">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" onDragDetected="#RemoveBakedGood" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="bakedGoodsTableView" layoutX="14.0" layoutY="38.0" prefHeight="200.0" prefWidth="353.0">
+                     <columns>
+                        <TableColumn fx:id="bakedGoodsNameColumn" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="bakedGoodsDescriptionColumn" prefWidth="201.0" text="Description" />
+                        <TableColumn fx:id="bakedGoodsOriginColumn" prefWidth="75.0" text="Region" />
+                     </columns>
+                  </TableView>
+                  <ImageView fx:id="bakedGoodsTableImageView" fitHeight="201.0" fitWidth="209.0" layoutX="377.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="155.0" layoutY="14.0" text="Baked Goods" />
+                  <Label layoutX="425.0" layoutY="14.0" text="Selected Baked Good" />
+                  <TextField fx:id="nameModifyTextField" layoutX="59.0" layoutY="308.0" promptText="Name" />
+                  <TextField fx:id="originModifyTextField" layoutX="311.0" layoutY="333.0" prefHeight="25.0" prefWidth="110.0" promptText="Region" />
+                  <TextArea fx:id="descriptionModifyTextArea" layoutX="278.0" layoutY="269.0" prefHeight="27.0" prefWidth="200.0" promptText="Textural description" />
+                  <Button fx:id="selectmodifyimageBtn1" layoutX="444.0" layoutY="333.0" mnemonicParsing="false" onAction="#selectImage" text="Select File" />
+                  <Label layoutX="461.0" layoutY="312.0" text="Image:" />
+                  <Label layoutX="14.0" layoutY="311.0" text="Name" />
+                  <Label layoutX="214.0" layoutY="337.0" text="Country/Region" />
+                  <Label layoutX="214.0" layoutY="270.0" prefWidth="64.0" text="Textural &#10;Description" />
+                  <Button layoutX="532.0" layoutY="302.0" mnemonicParsing="false" onAction="#modifyBakedGood" text="Modify" />
+                  <Button layoutX="17.0" layoutY="245.0" mnemonicParsing="false" onAction="#RemoveBakedGood" text="Remove" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Ingredients">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="ingredientsTableView" layoutX="132.0" layoutY="14.0" prefHeight="200.0" prefWidth="331.0">
+                    <columns>
+                      <TableColumn fx:id="ingredientNameColumn" prefWidth="75.0" text="Name" />
+                      <TableColumn fx:id="ingredientDescriptionColumn" prefWidth="201.0" text="Description" />
+                        <TableColumn fx:id="ingredientCaloriesColumn" minWidth="0.0" prefWidth="56.0" text="Calories" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="281.0" layoutY="214.0" text="Modify" />
+                  <TextField fx:id="IngredientModifyTextFieldName" layoutX="116.0" layoutY="275.0" promptText="Name" />
+                  <TextField fx:id="IngredientModifyTextFieldcalories" layoutX="116.0" layoutY="324.0" promptText="Calories" />
+                  <TextArea fx:id="IngredientModifyTextFieldDesc" layoutX="386.0" layoutY="269.0" prefHeight="37.0" prefWidth="200.0" promptText="Description" />
+                  <Label layoutX="20.0" layoutY="279.0" prefHeight="17.0" prefWidth="90.0" text="Ingredient name" />
+                  <Label layoutX="319.0" layoutY="271.0" text="Ingredient&#10;Description" textAlignment="CENTER" />
+                  <Label layoutX="20.0" layoutY="328.0" text="Calories" />
+                  <Button layoutX="459.0" layoutY="324.0" mnemonicParsing="false" onAction="#modifyIngredient" text="Modify" />
+                  <Button layoutX="506.0" layoutY="42.0" mnemonicParsing="false" onAction="#sortIngredientsListByCalories" text="Calories" />
+                  <Button layoutX="490.0" layoutY="87.0" mnemonicParsing="false" onAction="#sortIngredientsListByName" prefHeight="26.0" prefWidth="90.0" text="Alphabetically" />
+                  <Label layoutX="524.0" layoutY="14.0" text="Sort" />
+                  <Button layoutX="505.0" layoutY="186.0" mnemonicParsing="false" onAction="#RemoveIngredient" text="Remove" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Recipes">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ComboBox fx:id="bakedGoodsComboBox" layoutX="150.0" layoutY="56.0" prefWidth="150.0" promptText="Baked Good" />
+                  <ComboBox fx:id="ingredientsComboBox" layoutX="150.0" layoutY="106.0" prefWidth="150.0" promptText="Ingredient" />
+                  <ListView layoutX="386.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutX="20.0" layoutY="60.0" text="Select Baked Good" />
+                  <Label layoutX="20.0" layoutY="110.0" text="Add Ingredient" />
+                  <Label layoutX="456.0" layoutY="6.0" text="Ingredients" />
+                  <TextArea fx:id="stepsTextArea" layoutX="133.0" layoutY="157.0" prefHeight="87.0" prefWidth="200.0" promptText="Step 1:" />
+                  <Label layoutX="91.0" layoutY="157.0" text="Steps" />
+                  <Button layoutX="199.0" layoutY="275.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Search">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="searchTextField" layoutX="225.0" layoutY="62.0" promptText="Search goods" />
+                  <RadioButton fx:id="regionRadioBtn" layoutX="256.0" layoutY="96.0" mnemonicParsing="false" text="By Region" />
+                  <RadioButton fx:id="nameRadioBtn" layoutX="257.0" layoutY="122.0" mnemonicParsing="false" text="By Name" />
+                  <Label layoutX="282.0" layoutY="14.0" text="Search" />
+                  <Button layoutX="375.0" layoutY="61.0" mnemonicParsing="false" onAction="#searchBakedGoods" prefHeight="26.0" prefWidth="53.0" text="Search" />
+                  <TableView fx:id="bakedGoodsSearchTable" layoutX="14.0" layoutY="156.0" prefHeight="200.0" prefWidth="353.0">
+                     <columns>
+                        <TableColumn fx:id="bakedGoodsSearchNameColumn1" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="bakedGoodsSearchDescriptionColumn1" prefWidth="201.0" text="Description" />
+                        <TableColumn fx:id="bakedGoodsSearchOriginColumn1" prefWidth="75.0" text="Region" />
+                     </columns>
+                  </TableView>
+                  <ImageView fx:id="BakedGoodsSearchImage" fitHeight="201.0" fitWidth="209.0" layoutX="377.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="440.0" layoutY="131.0" text="Selected Baked Good" />
+                  <Button layoutX="476.0" layoutY="62.0" mnemonicParsing="false" onAction="#onSave" text="Save" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
